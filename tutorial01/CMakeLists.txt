@@ -13,27 +13,14 @@ project(tutorial01 C)
 ##
 set(CMAKE_C_STANDARD 99)
 
-##
-# Adds tutorial01-deprecated.c executable target.
-##
-add_executable(tutorial01-deprecated tutorial01-deprecated.c)
-
-##
-# Adds include directories to be used when compiling and libraries to be used
-# when linking target tutorial01-deprecated.
-##
-target_include_directories(tutorial01-deprecated PRIVATE ${FFMPEG_INCLUDE_DIRS})
-target_link_libraries(tutorial01-deprecated PRIVATE ${FFMPEG_LIBRARIES})
+INCLUDE_DIRECTORIES(/usr/local/Cellar/ffmpeg/5.0/include)
+LINK_DIRECTORIES(/usr/local/Cellar/ffmpeg/5.0/lib)
+LINK_LIBRARIES(avcodec avformat swresample swscale)
 
 ##
 # Adds tutorial01.c executable target.
 ##
 add_executable(tutorial01 tutorial01.c)
 
-##
-# Adds include directories to be used when compiling and libraries to be used
-# when linking target tutorial01.
-##
-target_include_directories(tutorial01 PRIVATE ${FFMPEG_INCLUDE_DIRS})
-target_link_libraries(tutorial01 PRIVATE ${FFMPEG_LIBRARIES})
+
 

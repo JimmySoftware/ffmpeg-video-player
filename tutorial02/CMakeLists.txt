@@ -13,29 +13,15 @@ project(tutorial02 C)
 ##
 set(CMAKE_C_STANDARD 99)
 
-##
-# Adds tutorial02-deprecated.c executable target.
-##
-add_executable(tutorial02-deprecated tutorial02-deprecated.c)
-
-##
-# Adds include directories to be used when compiling and libraries to be used when
-# linking target tutorial02-deprecated.
-##
-target_include_directories(tutorial02-deprecated PRIVATE ${FFMPEG_INCLUDE_DIRS} ${SDL_INCLUDE_DIRS})
-target_link_libraries(tutorial02-deprecated PRIVATE ${FFMPEG_LIBRARIES} ${SDL_LIBRARIES})
+INCLUDE_DIRECTORIES(/usr/local/Cellar/ffmpeg/5.0/include /usr/local/Cellar/sdl2/2.0.20/include)
+LINK_DIRECTORIES(/usr/local/Cellar/ffmpeg/5.0/lib /usr/local/Cellar/sdl2/2.0.20/lib)
+LINK_LIBRARIES(avcodec avformat swresample swscale SDL2)
 
 ##
 # Adds tutorial02.c executable target.
 ##
 add_executable(tutorial02 tutorial02.c)
 
-##
-# Adds include directories to be used when compiling and libraries to be used when
-# linking target tutorial02.
-##
-target_include_directories(tutorial02 PRIVATE ${FFMPEG_INCLUDE_DIRS} ${SDL2_INCLUDE_DIRS})
-target_link_libraries(tutorial02 PRIVATE ${FFMPEG_LIBRARIES} ${SDL2_LIBRARIES})
 
 ##
 # Add subdirectories to the build.
